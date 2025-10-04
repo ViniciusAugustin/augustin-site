@@ -141,16 +141,19 @@ section{padding:64px 0}
 .sec-title{font-size:clamp(22px,3.6vw,32px);margin:0;color:var(--brand-2)}
 .sec-desc{color:var(--muted);max-width:720px}
 
-/* CARDS */
+/* === CARDS DE SERVIÇOS === */
 .cards{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;align-items:stretch}
-.card{grid-column:span 4;background:var(--card);border:1px solid var(--soft);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.card{grid-column:span 4;background:var(--card);border:1px solid var(--soft);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:transform .3s ease}
+.card:hover{transform:translateY(-5px)}
 @media(max-width:960px){.card{grid-column:span 6}}
 @media(max-width:640px){.card{grid-column:span 12}}
-.card .cover{position:relative;aspect-ratio:16/9;background:#ddd}
+
+.card .cover{position:relative;width:100%;overflow:hidden;background:#ddd}
+.card .cover img{width:100%;height:auto;display:block;object-fit:cover}
 .badge{position:absolute;top:12px;left:12px;background:linear-gradient(135deg,#f2b705,#ff8c00);color:#000;font-weight:800;border-radius:999px;padding:6px 10px}
-.card .body{padding:16px;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:150px}
-.card h3{margin:0 0 6px;font-size:18px}
-.card p{margin:0;color:var(--muted)}
+.card .body{padding:18px;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.card h3{margin:0 0 8px;font-size:18px}
+.card p{margin:0;color:var(--muted);font-size:15px;line-height:1.5}
 
 /* Frota */
 .fleet{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-bottom:32px}
@@ -172,13 +175,7 @@ section{padding:64px 0}
 .stat .num{font-size:clamp(28px,4.5vw,42px);font-weight:800;letter-spacing:.6px;color:var(--brand-2)}
 .stat .lbl{color:var(--muted)}
 
-/* Clientes */
-.clients{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;align-items:center}
-@media(max-width:900px){.clients{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:560px){.clients{grid-template-columns:repeat(2,1fr)}}
-.client{height:64px;border-radius:12px;background:#fff;border:1px solid var(--soft);display:grid;place-items:center;color:#444;font-weight:700;box-shadow:var(--shadow)}
-
-/* NOVA SEÇÃO DIFERENCIAIS + EMPRESAS */
+/* DIFERENCIAIS + EMPRESAS */
 .stat.destaque {
   grid-column: span 12;
   background: var(--card);
@@ -331,60 +328,20 @@ section { scroll-margin-top: 40px; }
 
 /* ==== CORREÇÕES MOBILE (SERVIÇOS + DEPOIMENTOS) ==== */
 @media (max-width: 640px) {
-  /* --- SERVIÇOS --- */
-  .cards {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+  /* Serviços */
+  .cards { grid-template-columns: 1fr; gap: 20px; }
+  .card { grid-column: span 12; }
 
-  .card {
-    grid-column: span 12;
-  }
+  .card .cover { aspect-ratio: auto; }
+  .card .cover img { width: 100%; height: auto; object-fit: contain; }
 
-  /* Remove a restrição de aspecto e deixa a imagem fluida */
-  .card .cover {
-    aspect-ratio: auto;
-    background: none;
-  }
+  .card .body { padding: 16px; text-align: center; }
+  .card h3 { font-size: 18px; margin-bottom: 6px; }
+  .card p { font-size: 15px; line-height: 1.5; color: var(--muted); }
 
-  .card .cover img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    border-bottom: 1px solid var(--soft);
-  }
-
-  .card .body {
-    padding: 16px;
-    text-align: center;
-  }
-
-  .card h3 {
-    font-size: 18px;
-    margin-bottom: 8px;
-  }
-
-  .card p {
-    font-size: 15px;
-    line-height: 1.5;
-    color: var(--muted);
-    white-space: normal;
-  }
-
-  /* --- DEPOIMENTOS --- */
-  .carousel-track {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .carousel .quote {
-    flex: 1 1 100%;
-    width: 90%;
-    max-width: 500px;
-    min-width: auto;
-  }
-
+  /* Depoimentos */
+  .carousel-track { flex-direction: column; align-items: center; }
+  .carousel .quote { flex: 1 1 100%; width: 90%; max-width: 500px; }
   .carousel-btn.prev { left: 10px; }
   .carousel-btn.next { right: 10px; }
 }
