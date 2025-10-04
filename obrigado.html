@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Obrigado - Augustin Transportes & Turismo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="Augustin Transportes & Turismo" />
+      </a>
+    </div>
+  </header>
+
+  <!-- Sem overlay e ocupando a tela toda -->
+  <section class="hero no-overlay"
+    style="min-height:100vh;background:url('Fundo.jpg') no-repeat center center/cover;
+           color:#000;text-align:center;display:flex;flex-direction:column;
+           justify-content:center;align-items:center;padding:20px;">
+    <div class="container" style="position:relative;z-index:1;">
+      <h1 class="title-xl">✅ Pedido enviado com sucesso!</h1>
+      <p class="subtitle" style="max-width:600px;margin:auto;">
+        Recebemos suas informações e entraremos em contato em breve no e-mail ou telefone informado.
+        Obrigado por escolher a <strong>Augustin Transportes & Turismo</strong>.
+      </p>
+      <div style="margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a class="btn btn--primary" href="index.html">Voltar ao site</a>
+        <a class="btn btn--wa" href="https://wa.me/5551999728452" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Augustin Transportes & Turismo — Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
